@@ -22,23 +22,43 @@ AstraCS:gSSSoGsqFXWIIkDxgPmpNUep:1a354eef59abdcea01f2bfb937758edc7874606f4ccb11d
 mutation {
 
   game_by_genre: createTable(
+  
     keyspaceName:"dream_keyspace",
+    
     tableName:"game_by_genre",
+    
     ifNotExists: true,
+    
     partitionKeys: [
+    
       { name: "genre", type: {basic: TEXT} }
+      
     ]
+    
     clusteringKeys: [ 
+    
 	  { name: "title", type: {basic: TEXT}, order: "ASC" },
-      { name: "startDate", type: {basic: timestamp }, order: "DESC" },
-	  { name: "endDate", type: {basic: timestamp }, order: "DESC" },    
+	  
+      { name: "startDate", type: {basic: TIMESTAMP }, order: "DESC" },
+      
+	  { name: "endDate", type: {basic: TIMESTAMP }, order: "DESC" }, 
+	  
     ]
+    
     values: [
+    
       { name: "startRange", type: {basic: INT} },
+      
       { name: "endRange", type: {basic: INT} },
+      
 	  { name: "winRange", type: {basic: INT} },
+	  
       { name: "thumbnail", type: {basic: TEXT} }
+      
     ]
+    
   )
+  
 }
+
 
