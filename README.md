@@ -37,6 +37,7 @@ mutation {
     
     clusteringKeys: [ 
     
+    
 	  { name: "title", type: {basic: TEXT}, order: "ASC" },
 	  
       { name: "startDate", type: {basic: TIMESTAMP }, order: "DESC" },
@@ -59,6 +60,30 @@ mutation {
     
   )
   
+}
+
+
+mutation {
+
+  game_by_tiket: createTable(
+  
+    keyspaceName:"dream_keyspace",
+    tableName:"game_by_tiket",
+    ifNotExists: true,
+    partitionKeys: [
+    
+      { name: "userid", type: {basic: TEXT} }
+    ]
+    clusteringKeys: [ 
+    
+	  { name: "buyrange", type: {basic: INT}, order: "ASC" }     
+    ]
+    values: [
+      { name: "price", type: {basic: INT} },
+      { name: "winrange", type: {basic: INT} },
+	    { name: "paidprice", type: {basic: INT} }    
+    ]
+  )
 }
 
 
