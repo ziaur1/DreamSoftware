@@ -87,3 +87,22 @@ mutation {
 }
 
 
+mutation insertgame {
+
+PLAY_13: insertgame_by_genre(
+    value: { 
+    
+      genre:"PLAY_13", 
+      title:"PLAY_13",
+       startDate: "2021-08-16",
+       endDate: "2021-08-16",
+       startRange:1,
+	   endRange:8,
+	   winRange:0,	
+	   
+      thumbnail:"https://i.imgur.com/RPa4UdO.mp4"}
+      ) {
+    value{title}
+    }
+	}
+
